@@ -3,8 +3,9 @@ import Porducts from "./components/Porducts";
 import Blogs from "./components/Blogs";
 import AboutUs from "./components/AboutUs";
 import MyNavbar from "./components/MyNavbar";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import SingleProduct from "./components/SingleProduct";
+import NotFound from "./components/NotFound";
 // import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 
 import "./App.scss";
@@ -31,10 +32,16 @@ function App() {
             render={(props) => <AboutUs name="mohammad" {...props} />}
           />
           <Route
+            path="/NotFound"
+            render={(props) => <NotFound name="mohammad" {...props} />}
+          />
+          <Route
             path="/"
             exact
             render={(props) => <HomePage name="mohammad" {...props} />}
           />
+          <Redirect from="/card" to="/Porducts" />
+          <Redirect to="/notfound" />
         </Switch>
       </div>
     </div>
